@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>01_css의 @mediaQuery를 이용한 반응형 웹</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<style>
+		.material-symbols-outlined {
+		  font-variation-settings:
+		  'FILL' 0,
+		  'wght' 400,
+		  'GRAD' 0,
+		  'opsz' 24
+		}
+		*{margin: 0;
+		padding: 0;}
+		body{
+			background-color: #F6EBBB;
+		}
+		#wrapper{
+			width: 100%;
+		}
+		nav{
+			width: 100%;
+			overflow: hidden;
+		}
+		nav li{
+			width: 20%;
+			float: left;
+			list-style: none;
+			border:1px solid brown;
+			box-sizing: border-box;
+			text-align: center;
+			height: 50px;
+			line-height: 50px;
+		}
+		section{
+			width: 100%;
+			border:1px solid brown;
+			padding:20px;
+			font-size: 1.5em;
+			box-sizing: border-box;
+		}
+		footer{
+			width: 100%;
+			border:1px solid brown;
+			padding:20px;
+			font-size: 1.2em;
+			text-align: center;
+			box-sizing: border-box;
+		}
+
+		/*@mediaQuery */
+		/*디바이스 장치의 가로 사이즈가 최소 960일 때:960px이상=>laptop컴퓨터용*/
+		@media screen and (min-width:960px){
+			body{
+				background-color: #7DF7E7;
+			}
+			#wrapper{
+				width: 80%;
+				margin: 0 auto;
+			}
+			header span.material-symbols-outlined{
+				display: none;
+			}
+
+		}
+		/*디바이스 장치의 가로 사이즈가 최소 768이상이면서 최고 959px일 때:768px~960px이하=> 타블렛용*/
+		@media screen and (min-width:768px) and (max-width:959px){
+			body{
+				background-color: #FFB2D6;
+			}
+			#wrapper{
+				width: 100%;
+			}
+			header span.material-symbols-outlined{
+				display: none;
+			}
+		}
+		/*디바이스 장치의 가로 사이즈가 최대 767px일 때:767px이하=>스마트폰용*/
+		@media screen and (max-width:767px){
+			body{
+				background-color: #F7C650;
+			}
+			nav{
+				display: none;
+			}
+			header{
+				position: relative;
+			}
+			header span.material-symbols-outlined{
+				position: absolute;
+				right:5px;
+				top:5px;
+				cursor: pointer;
+				font-size: 2em !important;
+			}
+			header span.material-symbols-outlined:hover+nav{
+				display: block;
+			}
+			nav li{
+				width: 100%;
+			}
+			section p{
+				font-size: 1.5em;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<!-- div#wrapper>(nav>ul>li*5>{menu$})+(section>p*2)+footer>p -->
+	<div id="wrapper">
+		<header>
+			<h1>반응형 웹</h1>
+			<span class="material-symbols-outlined">
+			menu
+			</span>
+			<nav>
+				<ul>
+					<li>menu title title 1</li>
+					<li>menu title title 2</li>
+					<li>menu title title 3</li>
+					<li>menu title title 4</li>
+					<li>menu title title 5</li>
+				</ul>
+			</nav>
+		</header>
+		<section>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Eos quae a odio ut iusto adipisci libero, similique possimus laudantium optio nobis. Nisi dicta incidunt amet eum assumenda facilis minima necessitatibus.</p>
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing, elit. Odit dolor voluptates temporibus, eius reiciendis voluptatem velit veniam commodi ratione eveniet nulla perspiciatis explicabo illum ipsum eos consequuntur, autem, impedit libero?</p>
+		</section>
+		<footer>
+			<p>&copy;by sejiKim</p>
+		</footer>
+	</div>
+</body>
+</html>
